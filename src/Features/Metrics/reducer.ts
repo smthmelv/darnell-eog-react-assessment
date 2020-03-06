@@ -8,15 +8,14 @@ export type ApiErrorAction = {
   error: string;
 };
 
-const initialState = {
-//   temperatureinCelsius: 0,
-//   temperatureinFahrenheit: 0,
-//   description: '',
-//   locationName: '',
-  getMetrics: [] as any
-};
+export type SelectedMetrics = {
+  selectedMetrics: object[];
+}
 
-// const toF = (c: number) => (c * 9) / 5 + 32;
+const initialState = {
+  getMetrics: [] as any,
+  selectedMetrics: [] as any
+};
 
 const slice = createSlice({
   name: 'metrics',
@@ -26,6 +25,12 @@ const slice = createSlice({
       state.getMetrics = action.payload;
     },
     weatherApiErrorReceived: (state, action: PayloadAction<ApiErrorAction>) => state,
+    //This is my attempt to add the selected metrics to the store
+    //Although I think useState might be the proper way to do so
+    selectedMetricsReceived: (state, action: PayloadAction<SelectedMetrics>) => {
+      console.log(action.payload);
+      // state.selectedMetrics = action.payload;
+    }
   },
 });
 

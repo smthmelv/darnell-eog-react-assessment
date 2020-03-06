@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import DropDown from './components/DropDown';
+import VisualizationContainer from './components/VisualizationContainer';
 // import NowWhat from './components/NowWhat';
 
 const store = createStore();
@@ -25,15 +25,21 @@ const theme = createMuiTheme({
   },
 });
 
+/** Overall I had to do a lot of research,
+ * beacuse I haven't had any experience with graphQL or reactHooks.
+ * I had fun learning all these new libraries but was frustrated with the slowness of my laptop.
+ * I hope this gives some insight to my programming drive and ethusiasm to lern more.
+ * Thanks for the opportunity to display my skills and ability to learn on the fly. **/
+
 const App = () => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
     <Provider store={store}>
       <Wrapper>
         <Header />
-        {/* <NowWhat /> */}
         <ToastContainer />
-        <DropDown />
+        <VisualizationContainer />
+        {/* <NowWhat /> */}
       </Wrapper>
     </Provider>
   </MuiThemeProvider>
